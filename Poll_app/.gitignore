@@ -3,7 +3,3 @@ __pycache__
 *.sqlite3
 migrations
 myenv
-# models.py
-templates
-# urls.py
-# views.py
