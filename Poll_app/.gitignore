@@ -5,5 +5,5 @@ migrations
 myenv
 # models.py
 templates
-urls.py
-views.py
+# urls.py
+# views.py
