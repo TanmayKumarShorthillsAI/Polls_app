@@ -12,7 +12,7 @@ def send_choice_email(sender, instance, created, **kwargs):
             "Greetings!!",
             f"Thanks for participating in the poll \n Poll info: \n Question: {instance.question.question_text}\n Choice: {instance.choice_text}",
             "admin@django.com",
-            ["tanmayk2001@gmail.com"],
+            ["tanmay@gmail.com"],
             fail_silently=False
             
         )

@@ -1,17 +1,23 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import Question, Choice
-from django.template import loader
+# from django.template import loader
 from django.views import generic
 from django.urls import reverse
 from django.db.models import F
+from polls.tasks import say_hi
 
 
 class IndexView(generic.ListView):
     template_name = "polls/index.html"
     context_object_name = "latest_question_list"
 
+    def get(self, request, *args, **kwargs):
+        say_hi.delay()
+        return super().get(request, *args, **kwargs)
+
     def get_queryset(self):
+        # say_hi().delay()
         return Question.objects.order_by("pub_date")[:5]
 
 
